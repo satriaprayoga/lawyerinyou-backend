@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"lawyerinyou-backend/models"
 	"lawyerinyou-backend/pkg/settings"
 	"log"
 	"os"
@@ -56,8 +57,16 @@ func Setup() {
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 
-	//go migrate()
+	migrate()
 
 	timeSpent := time.Since(now)
 	log.Printf("Config database is ready in %v", timeSpent)
+}
+
+func migrate() {
+	log.Println("START AUTO MIGRATE")
+	Conn.AutoMigrate(
+		models.LawUser{},
+	)
+	log.Println("FINISHING AUTO MIGRATE ")
 }
