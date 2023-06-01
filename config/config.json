@@ -29,9 +29,9 @@
         "type": "postgres",
         "host": "localhost",
         "port": "5432",
-        "user": "postgres",
+        "user": "lawyerinyou",
         "password": "asdqwe123",
-        "name": "lawyerinyou",
+        "name": "lawyerinyou2023",
         "table_prefix": ""
     },
     "redisdb":{
