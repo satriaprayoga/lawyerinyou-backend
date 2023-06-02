@@ -45,7 +45,7 @@ type Database struct {
 
 type RedisDB struct {
 	Host     string `mapstructure:"host"`
-	Port     string `mapstructure:"port"`
+	Port     int    `mapstructure:"port"`
 	DB       int    `mapstructure:"db"`
 	Key      string `mapstructure:"key"`
 	Password string `mapstructure:"password"`
