@@ -7,13 +7,22 @@ postgres:
 postgres-stop:
 	@docker stop postgreslaw
 
-setup: postgres-run postgres-stop
+redis-run:
+	@docker run -d -p 6379:6379 --name redislaw redis
 
-stop: postgres-stop
+redis:
+	@docker start redislaw
 
-container: postgres
+redis-stop:
+	@docker stop redislaw
+
+setup: postgres-run redis-run postgres-stop redis-stop
+
+stop: postgres-stop redis-stop
+
+container: postgres redis
 
 main: 
 	@go run ./cmd/main.go
 
-run: postgres main
+run: postgres redis main
