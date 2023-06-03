@@ -30,4 +30,4 @@ run: postgres redis main
 test:
 	@go test -v -cover ./...
 
-run-test: postgres redis test stop
+run-test: postgres redis test
