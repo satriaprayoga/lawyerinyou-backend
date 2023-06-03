@@ -12,4 +12,6 @@ type IAuthService interface {
 	ForgotPassword(ctx context.Context, dataForgot *models.ForgotForm) (result string, err error)
 	GenOTP(ctx context.Context, dataForgot *models.ForgotForm) (result interface{}, err error)
 	Register(ctx context.Context, dataRegister models.RegisterForm) (output interface{}, err error)
+	VerifyRegister(ctx context.Context, dataVerify models.VerifyForm) (output interface{}, err error)
+	Verify(ctx context.Context, dataVerify models.VerifyForm) (err error)
 }

@@ -239,3 +239,75 @@ func (a *authService) Register(ctx context.Context, dataRegister models.Register
 	}
 	return out, nil
 }
+
+func (a *authService) VerifyRegister(ctx context.Context, dataVerify models.VerifyForm) (output interface{}, err error) {
+	_, cancel := context.WithTimeout(ctx, a.contextTimeOut)
+	defer cancel()
+
+	var (
+		expireToken = settings.AppConfigSetting.JWTExpired
+	)
+
+	data := redis.GetSession(dataVerify.Account + "_Register")
+	if data == "" {
+		return output, errors.New("account yang anda masukkan salah")
+	}
+
+	if data != dataVerify.VerifyCode {
+		return output, errors.New("OTP yang anda masukkan salah")
+	}
+
+	redis.TurncateList(dataVerify.Account + "_Register")
+
+	DataUser, err := a.lawUserRepo.GetByAccount(dataVerify.Account, dataVerify.UserType)
+	if err != nil {
+		return output, errors.New("account anda tidak terdaftar")
+	}
+
+	sessionID := uuid.New().String()
+	token, err := token.GenerateToken(sessionID, DataUser.UserID, dataVerify.Account, dataVerify.UserType)
+	if err != nil {
+		return nil, err
+	}
+	mUser := map[string]interface{}{
+		"is_active": true,
+	}
+	err = a.lawUserRepo.Update(DataUser.UserID, mUser)
+	if err != nil {
+		return output, err
+	}
+	redis.AddSession(token, DataUser.UserID, time.Duration(expireToken)*time.Hour)
+
+	restUser := map[string]interface{}{
+		"user_id":   DataUser.UserID,
+		"email":     DataUser.Email,
+		"telp":      DataUser.Telp,
+		"user_name": DataUser.Name,
+		"user_type": DataUser.UserType,
+	}
+	response := map[string]interface{}{
+		"token":     token,
+		"data_user": restUser,
+		"user_type": DataUser.UserType,
+	}
+
+	return response, nil
+}
+
+func (a *authService) Verify(ctx context.Context, dataVerify models.VerifyForm) (err error) {
+	_, cancel := context.WithTimeout(ctx, a.contextTimeOut)
+	defer cancel()
+
+	data := redis.GetSession(dataVerify.Account + "_Forgot")
+	if data == "" {
+		return errors.New("please resend code")
+	}
+
+	if data != dataVerify.VerifyCode {
+		return errors.New("invalid code")
+	}
+
+	redis.TurncateList(dataVerify.Account + "_Forgot")
+
+	return nil
+}
