@@ -19,12 +19,14 @@ type RegisterForm struct {
 
 // ForgotForm :
 type ForgotForm struct {
-	Account string `json:"account" valid:"Required"`
+	Account  string `json:"account" valid:"Required"`
+	UserType string `json:"user_type" valid:"Required"`
 }
 
 // ResetPasswd :
 type ResetPasswd struct {
 	Account       string `json:"account" valid:"Required"`
+	UserType      string `json:"user_type" valid:"Required"`
 	Passwd        string `json:"pwd" valid:"Required"`
 	ConfirmPasswd string `json:"confirm_pwd" valid:"Required"`
 }

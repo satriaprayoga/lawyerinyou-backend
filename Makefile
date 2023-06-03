@@ -26,3 +26,8 @@ main:
 	@go run ./cmd/main.go
 
 run: postgres redis main
+
+test:
+	@go test -v -cover ./...
+
+run-test: postgres redis test stop

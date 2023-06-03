@@ -57,13 +57,13 @@ func Setup() {
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 
-	migrate()
+	go autoMigrate()
 
 	timeSpent := time.Since(now)
 	log.Printf("Config database is ready in %v", timeSpent)
 }
 
-func migrate() {
+func autoMigrate() {
 	log.Println("START AUTO MIGRATE")
 	Conn.AutoMigrate(
 		models.LawUser{},
