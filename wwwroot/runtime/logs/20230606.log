@@ -1,0 +1,46 @@
+[INFO][(*AuthController)][auth_controller.go:69]2023/06/06 14:44:02 {"name":"","birth_of_date":"0001-01-01T00:00:00Z","account":"","user_type":"","pwd":"","confirm_pwd":""}
+[ERROR][Res][response.go:43]2023/06/06 14:44:02 {"message":"Name.Required. Name Can not be empty","data":null}
+[INFO][(*AuthController)][auth_controller.go:69]2023/06/06 14:50:03 {"name":"Gilang Satria","birth_of_date":"0001-01-01T00:00:00Z","account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","confirm_pwd":"asdqwe123"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 14:50:04 &{0xc0001a6b40 <nil> 0 0xc000360000 0}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:27]2023/06/06 14:50:04 &{0xc0001a6b40 <nil> 1 0xc0003e48c0 0}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:41]2023/06/06 14:50:04 &{0xc0001a6b40 <nil> 1 0xc0003e4e00 0}
+[INFO][Res][response.go:31]2023/06/06 14:50:04 {"message":"Ok","data":{"account":"satria.prayoga@gmail.com","otp":"yGHw"}}
+[INFO][(*AuthController)][auth_controller.go:96]2023/06/06 15:01:56 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","verify_code":"yGHw"}
+[ERROR][Res][response.go:43]2023/06/06 15:01:56 {"message":"please resend code","data":null}
+[INFO][(*AuthController)][auth_controller.go:70]2023/06/06 15:08:11 {"name":"Gilang Satria","birth_of_date":"0001-01-01T00:00:00Z","account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","confirm_pwd":"asdqwe123"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:08:11 &{0xc00018aa20 <nil> 0 0xc000358000 0}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:27]2023/06/06 15:08:11 &{0xc00018aa20 <nil> 1 0xc0003581c0 0}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:41]2023/06/06 15:08:11 &{0xc00018aa20 <nil> 1 0xc000358700 0}
+[INFO][Res][response.go:31]2023/06/06 15:08:11 {"message":"Ok","data":{"account":"satria.prayoga@gmail.com","otp":"FgqZ"}}
+[INFO][(*AuthController)][auth_controller.go:96]2023/06/06 15:08:22 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","verify_code":"FgqZ"}
+[ERROR][Res][response.go:43]2023/06/06 15:08:22 {"message":"please resend code","data":null}
+[INFO][(*AuthController)][auth_controller.go:96]2023/06/06 15:08:29 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","verify_code":"FgqZ"}
+[ERROR][Res][response.go:43]2023/06/06 15:08:29 {"message":"please resend code","data":null}
+[INFO][(*AuthController)][auth_controller.go:123]2023/06/06 15:14:09 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","verify_code":"FgqZ"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:14:09 &{0xc00018ab40 <nil> 1 0xc000434c40 0}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:41]2023/06/06 15:14:09 &{0xc00018ab40 <nil> 1 0xc000434e00 0}
+[INFO][Res][response.go:31]2023/06/06 15:14:09 {"message":"Ok","data":{"data_user":{"email":"satria.prayoga@gmail.com","telp":"","user_id":4,"user_name":"Gilang Satria","user_type":"lawyer"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJmMGE0NzJlLTg1NDAtNDVhMC04OWNkLWMzZTI5MTUyY2FjNCIsInVzZXJfaWQiOjQsInVzZXJfbmFtZSI6InNhdHJpYS5wcmF5b2dhQGdtYWlsLmNvbSIsInVzZXJfdHlwZSI6Imxhd3llciIsImV4cCI6MTY4NjI5ODQ0OSwiaWF0IjoxNjg2MDM5MjQ5LCJpc3MiOiJsYXd5ZXJpbnlvdTIwMjMifQ.norjg1yRc_8AgDwcj-EVrNmKbsyMIFUGHdBZ4mfDXxA","user_type":"lawyer"}}
+[INFO][Res][response.go:31]2023/06/06 15:15:56 {"message":"Ok","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:20:05 {"account":"satria.prayoga@gmail.com","user_type":"user","pwd":"asdqwe123","fcm_token":""}
+[ERROR][Res][response.go:43]2023/06/06 15:20:05 {"message":"FcmToken.Required. FcmToken Can not be empty","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:20:39 {"account":"","user_type":"","pwd":"","fcm_token":""}
+[ERROR][Res][response.go:43]2023/06/06 15:20:39 {"message":"invalid request param: code=400, message=Syntax error: offset=83, error=invalid character '\"' after object key:value pair, internal=invalid character '\"' after object key:value pair","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:20:47 {"account":"satria.prayoga@gmail.com","user_type":"user","pwd":"asdqwe123","fcm_token":"token"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:20:48 &{0xc00018a870 <nil> 1 0xc000436380 0}
+[ERROR][Res][response.go:43]2023/06/06 15:20:48 {"message":"email anda belum terdaftar","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:21:26 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","fcm_token":"token"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:21:26 &{0xc00018a870 <nil> 1 0xc000436540 0}
+[ERROR][Res][response.go:43]2023/06/06 15:21:26 {"message":"email anda belum terdaftar","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:21:27 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","fcm_token":"token"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:21:27 &{0xc00018a870 <nil> 1 0xc00035e000 0}
+[ERROR][Res][response.go:43]2023/06/06 15:21:27 {"message":"email anda belum terdaftar","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:21:28 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","fcm_token":"token"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:21:29 &{0xc00018a870 <nil> 1 0xc00035e1c0 0}
+[ERROR][Res][response.go:43]2023/06/06 15:21:29 {"message":"email anda belum terdaftar","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:22:37 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","fcm_token":"token"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:22:37 &{0xc00018a990 <nil> 1 0xc000176000 0}
+[ERROR][Res][response.go:43]2023/06/06 15:22:37 {"message":"email anda belum terdaftar","data":null}
+[INFO][(*AuthController)][auth_controller.go:72]2023/06/06 15:23:37 {"account":"satria.prayoga@gmail.com","user_type":"lawyer","pwd":"asdqwe123","fcm_token":"token"}
+[QUERY][(*lawUserRepo)][lawuser_repo.go:54]2023/06/06 15:23:37 &{0xc00018a990 <nil> 1 0xc00016e000 0}
+[INFO][Res][response.go:31]2023/06/06 15:23:37 {"message":"Ok","data":{"data_user":{"email":"satria.prayoga@gmail.com","telp":"","user_id":4,"user_name":"Gilang Satria","user_type":"lawyer"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZjNDg0Y2IxLWY5MzctNGQyNy1hZWJkLWE4NjBmYWNlOTJiNiIsInVzZXJfaWQiOjQsInVzZXJfbmFtZSI6InNhdHJpYS5wcmF5b2dhQGdtYWlsLmNvbSIsInVzZXJfdHlwZSI6Imxhd3llciIsImV4cCI6MTY4NjI5OTAxNywiaWF0IjoxNjg2MDM5ODE3LCJpc3MiOiJsYXd5ZXJpbnlvdTIwMjMifQ.Wa3gc9_MRryO1Z8bJ4mRY7mKOe_ypHDJqnUSm7ix_jY"}}
+[INFO][Res][response.go:31]2023/06/06 15:24:19 {"message":"Ok","data":null}

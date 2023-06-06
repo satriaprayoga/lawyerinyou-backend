@@ -7,7 +7,7 @@ type LoginForm struct {
 	Account  string `json:"account" valid:"Required"`
 	UserType string `json:"user_type" valid:"Required"`
 	Password string `json:"pwd" valid:"Required"`
-	FcmToken string `json:"fcm_token" valid:"Required"`
+	FcmToken string `json:"fcm_token,omitempty"`
 }
 
 // RegisterForm :

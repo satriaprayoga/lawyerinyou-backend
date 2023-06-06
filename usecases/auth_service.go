@@ -49,7 +49,7 @@ func (a *authService) Login(ctx context.Context, dataLogin *models.LoginForm) (o
 		return nil, errors.New("email anda belum terdaftar")
 	}
 
-	if DataUser.UserType != "user" {
+	if DataUser.UserType != "lawyer" {
 		return nil, errors.New("email anda belum terdaftar")
 	}
 	if !DataUser.IsActive {
@@ -106,6 +106,8 @@ func (a *authService) ForgotPassword(ctx context.Context, dataForgot *models.For
 	if err != nil {
 		return "", err
 	}
+
+	go email.SendEmail(DataUser.Email, "Forgot", "This is forgot password")
 
 	return OTP, nil
 }
