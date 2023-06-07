@@ -96,6 +96,12 @@ func (a *authService) ForgotPassword(ctx context.Context, dataForgot *models.For
 
 	OTP := utils.GenerateNumber(4)
 
+	mailer := email.Forgot{
+		Email: DataUser.Email,
+		Name:  DataUser.Name,
+		OTP:   OTP,
+	}
+
 	//check redis
 	data := redis.GetSession(dataForgot.Account + "_Forgot")
 	if data != "" {
@@ -106,8 +112,8 @@ func (a *authService) ForgotPassword(ctx context.Context, dataForgot *models.For
 	if err != nil {
 		return "", err
 	}
-
-	go email.SendEmail(DataUser.Email, "Forgot", "This is forgot password")
+	go mailer.SendForgot()
+	//go email.SendEmail(DataUser.Email, "Forgot", "This is forgot password")
 
 	return OTP, nil
 }
@@ -125,6 +131,12 @@ func (a *authService) GenOTP(ctx context.Context, dataForgot *models.ForgotForm)
 	}
 
 	OTP := utils.GenerateNumber(4)
+	mailer := email.Register{
+		Email:      DataUser.Email,
+		Name:       DataUser.Name,
+		PasswordCd: OTP,
+	}
+	go mailer.SendRegister()
 
 	if DataUser.UserID > 0 {
 		redis.TurncateList(dataForgot.Account + "_Register")
@@ -223,10 +235,15 @@ func (a *authService) Register(ctx context.Context, dataRegister models.Register
 			return output, err
 		}
 	}
-	GenCode := utils.GenerateCode(4)
+	GenCode := utils.GenerateNumber(4)
+	mailer := email.Register{
+		Email:      User.Email,
+		Name:       User.Name,
+		PasswordCd: GenCode,
+	}
 
-	go email.SendEmail(User.Email, "Register", "This is registration")
-
+	//go email.SendEmail(User.Email, "Register", "This is registration")
+	go mailer.SendRegister()
 	if CekData.UserID > 0 {
 		redis.TurncateList(dataRegister.Account + "_Register")
 	}

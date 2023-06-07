@@ -40,6 +40,14 @@
         "db":0,
         "key":"law_email",
         "password":""
+    },
+    "smtp":{
+        "server":"smtp.gmail.com",
+        "port":587,
+        "sender":"lawyerinyou <gilsatpray@gmail.com>",
+        "user":"gilsatpray@gmail.com",
+        "passwd":"qbfaxttjojmuskcm",
+        "Identity":"Lawyer In You"
     }
 
 }
